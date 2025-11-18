@@ -33,7 +33,6 @@ h1 {
 #password {
     padding-left: 8px;
     height: 48px;
-    /* min-width: 268px; */
     width: 100%;
     border: #626161 solid 2px;
     border-radius: 8px;
@@ -43,7 +42,6 @@ h1 {
 
 .login-form button {
     background-color: #fd743d;
-    /* min-width: 268px; */
     width: 100%;
     height: 48px;
     border: none;
@@ -68,7 +66,6 @@ h1 {
     display: flex;
     gap: 32px;
     align-items: center;
-    /* border: #fd743d solid 2px; */
 }
 
 .login-register-pasword a {
@@ -81,20 +78,10 @@ h1 {
     border: #fd743d solid 2px;
     border-radius: 4px;
 }
-/* .forget-password-btn{
-    text-decoration-line: underline;
-} */
-
-
-
-@media (min-width:0px) {}
 
 @media(min-width:600px) {
     .login-form {
-        /* max-width: 500px; */
         width: 400px;
-
-        /* border: #fd743d solid 2px; */
         justify-self: center;
     }
 
@@ -102,27 +89,25 @@ h1 {
 
         width: 400px;
         display: flex;
-        /* max-width: 500px; */
         justify-self: center;
-        /* border: #fd743d solid 2px; */
     }
 }
 
 @media(min-width:904px) {
     h1 {
-    margin-top:48px;
-}
-    
+        margin-top: 48px;
+    }
+
 }
 
 @media(min-width:1240px) {
-     h1 {
-    margin-top:64px;
-}
+    h1 {
+        margin-top: 64px;
+    }
 }
 
 @media(min-width:1440px) {
-        h1 {
-    margin-top:128px;
-}
+    h1 {
+        margin-top: 128px;
+    }
 }
