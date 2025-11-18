@@ -1,0 +1,138 @@
+.navbar-container {
+    width: 100%;
+    height: 56px;
+    padding: 0 16px;
+    background-color: #19183B;
+}
+
+.navbar {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    /* border: #fff solid 2px; */
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* logo styles */
+.logo-container {
+    color: #fd743d;
+    /* border: #fff solid 2px; */
+}
+
+/* search bar styles */
+.search-bar-container {
+    flex-grow: 1;
+    flex-shrink: 0;
+    /* border: #fff solid 2px; */
+    margin-right: 32px;
+
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-bar-container input {
+    /* outline: none; */
+    display: none;
+    position: absolute;
+    right: 0;
+    width:60%;
+    padding-left: 16px;
+    font-size: 16px;
+    height: 32px;
+    border-radius: 16px;
+    border: #9f9898 solid 2px;
+    /* background-color: #ffffff87; */
+}
+
+.search-bar-container button {
+    display: none;
+    height: 32px;
+    position: absolute;
+    right:0;
+    padding: 0 8px;
+    background-color: #ffffff00;
+    border:none;
+    border-bottom-right-radius: 16px;
+    border-top-right-radius: 16px;
+    cursor: pointer;
+}
+
+.search-bar-container img {
+    border-left: #000000 solid 2px;
+    display: block;
+}
+
+/* menu bar styles */
+.menu-bar-container {
+    /* border: #fff solid 2px; */
+
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.menu-bar-container a {
+    text-decoration: none;
+    color: #fff;
+}
+
+
+@media(min-width:600px) {
+    .navbar-container {
+        padding: 0 32px;
+    }
+
+    .navbar {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+}
+
+@media(min-width:904px) {
+    .navbar-container {
+        padding: 0;
+    }
+
+    .navbar {
+        width: 840px;
+        margin: auto;
+    }
+
+    /* search bar style  */
+    .search-bar-container input {
+        display: block;
+    }
+    .search-bar-container button {
+        display: block;
+    }
+
+}
+
+@media(min-width:1240px) {
+    .navbar-container {
+        padding: 0 200px;
+    }
+
+    .navbar {
+        width: 100%;
+        margin: 0;
+    }
+}
+
+@media(min-width:1440px) {
+    .navbar-container {
+        padding: 0;
+    }
+
+    .navbar {
+        width: 1040px;
+        margin: auto;
+    }
+}
