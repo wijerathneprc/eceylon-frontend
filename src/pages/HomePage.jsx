@@ -1,12 +1,15 @@
+import { Footer } from '../components/footer/Footer';
 import { Navbar } from '../components/navbar/Navbar';
 import './HomePage.css';
 
 
-export function HomePage(){
+export function HomePage() {
 
-    return(<>
-    <Navbar />
-     
-    
-    </>)
+    return (
+        <>
+            <Navbar />
+
+            <Footer />
+        </>
+    )
 }
