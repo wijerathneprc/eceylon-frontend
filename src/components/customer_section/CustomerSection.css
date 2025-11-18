@@ -1,0 +1,141 @@
+h2 {
+    background-color: #fffefe1c;
+    margin-top: 32px;
+}
+
+.customer-review-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    padding: 0 16px;
+}
+
+.customer-review-container h2 {
+    grid-column: span 4;
+    text-align: center;
+}
+
+.customer-grid {
+    grid-column: span 4;
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 16px 0;
+}
+
+.customer-grid::-webkit-scrollbar {
+    display: none;
+}
+
+.review-card {
+    flex-shrink: 0;
+    background-color: #ffffff49;
+    border-radius: 8px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.133);
+    width: 300px;
+    padding: 16px;
+    text-align: center;
+}
+
+.customer-image {
+    width: 100px;
+    border-radius: 50%;
+}
+
+/* scroll buttons */
+.left-btn {
+    position: absolute;
+    left: 0;
+    height: 60px;
+    width: 40px;
+    background-color: #00000003;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.018);
+    margin: 5px;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+}
+
+.right-btn {
+    position: absolute;
+    right: 0;
+    height: 60px;
+    width: 40px;
+    background-color: #00000003;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.018);
+    margin: 5px;
+    align-self: center;
+    border: none;
+    border-radius: 5px;
+}
+
+
+@media(min-width:600px) {
+    .customer-review-container {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        /* gap: 24px; */
+        width: 100%;
+        padding: 0 32px;
+    }
+
+    .customer-review-container h2 {
+        grid-column: span 8;
+        text-align: center;
+    }
+
+    .customer-grid {
+        grid-column: span 8;
+        /* gap: 20px; */
+    }
+
+    .customer-grid::-webkit-scrollbar {
+        display: none;
+    }
+
+    .review-card {
+        width: 300px;
+        padding: 16px;
+        text-align: center;
+    }
+
+    .customer-image {
+        width: 100px;
+        border-radius: 50%;
+    }
+}
+
+@media(min-width:904px) {
+    .customer-review-container {
+        grid-template-columns: repeat(12, 1fr);
+        /* gap: 24px; */
+        width: 840px;
+        margin: auto;
+        padding: 0;
+    }
+
+    .customer-review-container h2 {
+        grid-column: span 12;
+    }
+
+    .customer-grid {
+        grid-column: span 12;
+    }
+}
+
+@media(min-width:1240px) {
+    .customer-review-container {
+        width: 100%;
+        padding: 0 200px;
+        margin: 0;
+    }
+}
+
+@media(min-width:1440px) {
+    .customer-review-container {
+        width: 1040px;
+        margin: auto;
+        padding: 0;
+    }
+}

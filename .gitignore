@@ -12,9 +12,8 @@ dist
 dist-ssr
 *.local
 about_section
-customer_section
 
-pages
+
 
 
 # Editor directories and files

@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7eae4;
+    color: #333;
+    line-height: 1.6;
+}
+
 .primary-clr{
     color: #fd743d;
 }
@@ -12,3 +19,5 @@
     color: #19183B;
 
 }
+
+
