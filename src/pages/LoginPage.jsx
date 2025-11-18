@@ -4,7 +4,6 @@ import './LoginPage.css';
 
 export function LoginPage() {
     return (
-
         <>
             <div className="login-container">
                 <h1><a className="logo-link-h1" href="index.html">eCEYLON</a></h1>
