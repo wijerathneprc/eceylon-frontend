@@ -1,0 +1,27 @@
+.configuration {
+    padding: 8px;
+     /* border:#000 solid 2px; */
+}
+
+.configuration select {
+    display: block;
+    /* border:#000 solid 2px; */
+    width: 90%;
+    height: 32px;
+    padding: 8px;
+    border-radius: 8px;
+    background-color: #fd733d00;
+    color: #fd743d;
+    border: #fd743d solid 2px;
+    font-weight: bold;
+}
+
+.configuration label {
+    display: block;
+    flex-grow: 1;
+    flex-shrink: 0;
+    /* border:#000 solid 2px; */
+    /* max-width: 200px; */
+    width: 250px;
+    
+}
