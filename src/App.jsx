@@ -9,6 +9,7 @@ import { RegisterPage } from './pages/register_page/RegisterPage';
 import { ForgetPasswordPage } from './pages/forget_password_page/ForgetPasswordPage';
 import { StorePage } from './pages/store_page/StorePage';
 import { CartPage } from './pages/cart_page/CartPage';
+import { ProfilePage } from './pages/profile_page/ProfilePage';
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
       <Route path='/forget-password' element={<ForgetPasswordPage />} />
       <Route path='/estore' element={<StorePage />} />
       <Route path='/cart' element={<CartPage />} />
+       <Route path='/profile' element={<ProfilePage />} />
+
+
     </Routes>
       
     </>
