@@ -1,12 +1,12 @@
 
-import { Navbar } from '../components/navbar/Navbar';
-import { Footer } from '../components/footer/Footer';
+import { Navbar } from '../../components/navbar/Navbar';
+import { Footer } from '../../components/footer/Footer';
 import './ProductPage.css';
-import { Quantity } from '../components/quantity/Quantity';
-import { Button } from '../components/button/Button';
-import { ColorSelector } from '../components/color_selector/ColorSelector';
-import { Configuration } from '../components/configuration/Configuration';
-import { Specification } from '../components/specification/Specification';
+import { Quantity } from '../../components/quantity/Quantity';
+import { Button } from '../../components/button/Button';
+import { ColorSelector } from '../../components/color_selector/ColorSelector';
+import { Configuration } from '../../components/configuration/Configuration';
+import { Specification } from '../../components/specification/Specification';
 
 
 

@@ -1,0 +1,12 @@
+.cart-item-container{
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: repeat(6, 1fr); */
+    border: #000 solid 2px;
+}
+
+.cart-item-container img{
+    grid-column: span 3;
+    width: 100px;
+    border: #000 solid 2px;
+}
