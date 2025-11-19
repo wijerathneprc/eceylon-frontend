@@ -48,7 +48,7 @@ export function LoginPage() {
     return (
         <>
             <div className="login-container">
-                <h1><a className="logo-link-h1" href="index.html">eCEYLON</a></h1>
+                <h1><Link className="logo-link-h1" to={"/"}>eCEYLON</Link></h1>
 
                 <form className="login-form" onSubmit={login}>
                     <h2> Login to your account </h2>
@@ -63,7 +63,7 @@ export function LoginPage() {
 
                 <div className="login-register-pasword">
                     <Link className="register-btn" to={"/register"}> Register </Link>
-                    <a className="forget-password-btn" href="#"> forget password? </a>
+                    <Link className="forget-password-btn" to={"/forget-password"}> forget password? </Link>
                 </div>
             </div>
 
