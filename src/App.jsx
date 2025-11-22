@@ -10,6 +10,7 @@ import { ForgetPasswordPage } from './pages/forget_password_page/ForgetPasswordP
 import { StorePage } from './pages/store_page/StorePage';
 import { CartPage } from './pages/cart_page/CartPage';
 import { ProfilePage } from './pages/profile_page/ProfilePage';
+import {ProductAddPage} from './pages/product_add_page/ProductAddPage'
 
 function App() {
 
@@ -25,6 +26,9 @@ function App() {
       <Route path='/estore' element={<StorePage />} />
       <Route path='/cart' element={<CartPage />} />
        <Route path='/profile' element={<ProfilePage />} />
+
+       <Route path='/product/add' element={<ProductAddPage />} />
+
 
 
     </Routes>
