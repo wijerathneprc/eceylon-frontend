@@ -3,21 +3,43 @@ import axios from 'axios';
 import './InputSearchSuggestion.css';
 
 
-export function InputSearchSuggetion({ url,name, setFunc}) {
-    const [suggestions, setSuggestions] = useState([]);
-    const [hide, setHide] = useState('hide')
-    const [targetInputVal, setTargetInputVal] = useState('')
-    const [addNewData, setAddNewData] = useState(false)
+function AddNew({ name }) {
+    return (<>
+        <div className={'add-new'}>
+            <h3> add new data</h3>
+            <input type="text" name='brand' placeholder={name} />
+            <button> add new </button>
+        </div>
+    </>)
+}
 
-    const fetchSuggetionsData = async (cal) => {
-        const response = await axios.get(url, { params: { param: cal } });
+function Edit({ name }) {
+    return (<>
+        <div className={'edit'}>
+            <h3> Edit </h3>
+            <input type="text" name='brand' placeholder={name} />
+        </div>
+    </>)
+}
+
+
+export function InputSearchSuggetion({ url, name, setFunc }) {
+    const [initialSugList, setInitialSugList] = useState([]);   //Initial Suggestion List
+    const [sugList, setSugList] = useState([]);                 // Suggestion List for input query 
+    const [hide, setHide] = useState('hide');
+    const [targetInputVal, setTargetInputVal] = useState('');
+
+    const fetchSuggetionsData = async () => {
+        const response = await axios.get(url);
         const data = await response.data;
-        setSuggestions(data);
+        setInitialSugList(data);
+        setSugList(data);   //don't use initialSugList. it still has tha value of function clouser for the 'fetchSuggetionsData' 
     }
 
     const handleSearchString = async (event) => {
+        const data = initialSugList.filter((sug) => sug.name.toLowerCase().startsWith(event.target.value.toLowerCase()))
+        setSugList(data)
         setTargetInputVal(event.target.value)
-        fetchSuggetionsData(event.target.value)
     }
 
     const hideSuggestions = (event) => {
@@ -36,38 +58,17 @@ export function InputSearchSuggetion({ url,name, setFunc}) {
         setTargetInputVal(data.name)
         setFunc(data)
     }
-    const handleAddNewData = () => {
-        if (addNewData) { setAddNewData(false) }
-        else { setAddNewData(true) }
-    }
-
 
     useEffect(() => {
-        fetchSuggetionsData('');
-
+        fetchSuggetionsData();
     }, [])
-
 
     return (<>
         <div className='input-search-suggestion-container'>
             <input type="text" id='' onChange={handleSearchString} onFocus={hideSuggestions} onBlur={hideSuggestions} placeholder={name} value={targetInputVal} />
-
-            <button className={`${(suggestions.length ? 'hide' : 'show')}`} onClick={handleAddNewData}> add new </button>
             <ul id='' className={`suggestions-list ${hide}`} >
-                {
-                    suggestions.map((suggestion) => {
-                        return (
-                            <li id={suggestion.id} key={suggestion.id} onClick={handleSelectedData}>{suggestion.name}</li>
-                        )
-                    })
-                }
+                {sugList.map((sug) => (<li id={sug.id} key={sug.id} onClick={handleSelectedData}>{sug.name}</li>))}
             </ul>
-            <div className={`add-new ${addNewData ? 'show' : 'hide'}`}>
-
-                <h1> add new data</h1>
-                <input type="text" name='brand' placeholder='brand' />
-
-            </div>
         </div>
     </>)
 }
