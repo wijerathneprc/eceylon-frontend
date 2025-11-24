@@ -7,11 +7,12 @@ import axios from 'axios';
 import './ProductAddPage.css';
 import FormData from 'form-data';
 
-// import { FormData } from 'form-data'
-
-
-import { Category } from './Category';
 import { Configurations } from './Configurations';
+import { InputSearchSuggetion } from './InputSeaarchSuggetion';
+import { AddNewBrand } from './brand/AddNewBrand';
+import { EditBrand } from './brand/EditBrand';
+import { AddImage } from './add_image/AddImage';
+import { ShowCofiguration } from './ShowConfiguration';
 
 
 
@@ -19,73 +20,71 @@ export function ProductAddPage() {
     const [productName, setProductName] = useState('')
     const [brand, setBrand] = useState({});
     const [category, setCategory] = useState({})
-    const [image, setImage] = useState(null)
-    const [releaseDate, setReleaseDate] = useState(null)
+    const [product, setProdcut] = useState({})
     const [description, setDescription] = useState('')
-    const [basePrice, setBasePrice] = useState(0)
+
     const formData = new FormData()
-    
-    const handleImageData = async (event) =>{
-        setImage(event.target.files[0])  
-    }
-    const handleDescription = (event) =>{
+
+    const handleDescription = (event) => {
         setDescription(event.target.value)
     }
-    const handelPrice = (event) =>{
-        setBasePrice(event.target.value)
-    }
 
-    const handleProductName = (event) =>{
+    const handleProductName = (event) => {
         setProductName(event.target.value)
     }
-    const handleDate = (event)=>{
-        setReleaseDate(event.target.value)
-    }
 
-    const handleSend = async () =>{
-        formData.append('image', image)
+    const handleSend = async () => {
         formData.append('brand', brand.name)
         formData.append('category', category.name)
-        formData.append('base_price', basePrice)
         formData.append('description', description)
         formData.append('name', productName)
-        formData.append('release_date', releaseDate)
-        
-         const res = await axios.post('http://127.0.0.1:8000/estore/product/', formData)
-         console.log(formData)
-    
-        
+        const res = await axios.post('http://127.0.0.1:8000/estore/product/', formData)
+        setProdcut(res.data)
     }
+
     return (
         <>
             <Navbar />
             <div className='product-add-page'>
+                <div className='product-basic'>
+                    <h2> Introduce a New Product </h2>
 
-                <h2> Add a New Product </h2>
+                    <div>
+                        <label htmlFor="product-name">Name of the Product </label>
+                        <input id='product-name' type="text" name='product-name' placeholder='Product Name' onChange={handleProductName} />
+                    </div>
+                    <div>
+                        <label htmlFor="category"> select a category for the product</label>
+                        <InputSearchSuggetion url={'http://127.0.0.1:8000/estore/category/list'} setFunc={setCategory} name={'Category'} />
+
+                    </div>
+                    <div>
+                        <label htmlFor="brand"> select a brand for the product </label>
+                        <InputSearchSuggetion url={'http://127.0.0.1:8000/estore/brand/list'} setFunc={setBrand} name={'Brand'} />
+                    </div>
 
 
-                <div>
-                    <label htmlFor="product-name">Name of the Product </label>
-                    <input id='product-name' type="text" name='product-name' placeholder='Product Name' onChange={handleProductName} />
-                
+                    <div>
+                        <label htmlFor="description">give a little description of the product</label>
+                        <textarea name='description' onChange={handleDescription}></textarea>
+                    </div>
+
+                    <button onClick={handleSend}> Submit </button>
                 </div>
-                
-                <Category url={'http://127.0.0.1:8000/estore/category/list'}  setFunc={setCategory}  />
+                <div className='product-images'>
 
-                <Category url={'http://127.0.0.1:8000/estore/brand/list'} setFunc={setBrand} />
-                <form>
-                    <input type="file" accept='image/*' name="" id="" onChange={handleImageData} />
-                </form>
-                <div>
-                    <input type="date" name="release-date" id="" onChange={handleDate} />
+                    <AddImage productId={product.id} />
+
+                </div>
+
+                <div className='product-configs'>
+                    <ShowCofiguration productId={product.id} />
+                    <Configurations productId={product.id} />
                 </div>
                 <div>
-                    <textarea onChange={handleDescription}></textarea>
+                    <button> add a new {'product'} configuration </button>
                 </div>
-                <div> <input type="text" name="base-price" id=""  placeholder='base price in $' onChange={handelPrice} /></div>
-                <button onClick={handleSend}> submit </button>
             </div>
-            <Configurations />
             <Footer />
         </>
     )

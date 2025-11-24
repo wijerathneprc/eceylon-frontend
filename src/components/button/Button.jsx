@@ -1,16 +1,12 @@
 
-
 import './Button.css';
 
 
-export function Button({ name, style}) {
+export function Button({ name, style, handleFunc }) {
 
-    return (
-        <>
-            <button className={style}>
-                {name}
-            </button>
-
-        </>
-    )
+    return (<>
+        <button className={style} onClick={handleFunc}>
+            {name}
+        </button>
+    </>)
 }
