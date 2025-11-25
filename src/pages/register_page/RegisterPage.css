@@ -1,0 +1,128 @@
+.register-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.register-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 80%;
+}
+
+.register-page h1 {
+    margin: 8px 0;
+    padding: 0;
+}
+
+.eceylon-logo {
+    text-decoration: none;
+    color: #fd743d;
+    font-weight: bold;
+    border-bottom: #fd743d solid 2px;
+}
+
+.register-page h2 {
+    margin: 8px 0;
+    padding: 0;
+    background-color: none;
+    text-align: center;
+}
+
+.register-form input {
+    height: 40px;
+    width: 100%;
+    margin: 16px 0;
+    padding: 8px;
+    border-radius: 8px;
+    border: #00000097 solid 2px;
+}
+
+.register-btn {
+    background-color: #fd743d;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 16px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 0 8px;
+}
+
+.register-btn-container {
+    margin-top: 16px;
+}
+
+@media(min-width:600px) {
+    .register-form-container {
+        width: 70%;
+    }
+
+    .register-page h1 {
+        margin-bottom: 16px 0;
+    }
+
+    .register-page h2 {
+        margin: 16px 0;
+        background-color: none;
+    }
+
+    .register-form input {
+        height: 48px;
+        width: 100%;
+        margin: 24px 0;
+        padding: 8px;
+        border-radius: 8px;
+        border: #00000097 solid 2px;
+    }
+
+    .register-btn {
+        height: 40px;
+    }
+
+
+}
+
+@media(min-width:904px) {
+    .register-form-container {
+        background-color: rgba(86, 78, 78, 0.079);
+        padding: 24px;
+        max-width: 550px;
+        border-radius: 16px;
+    }
+
+    .register-form input {
+        width: 200px;
+        margin: 16px;
+        padding: 8px;
+        border-radius: 8px;
+        border: #00000097 solid 2px;
+    }
+
+    .register-btn {
+        margin-left: 16px;
+    }
+
+    .register-page h1 {
+        margin-bottom: 4px;
+        margin-left: 16px;
+        align-self: start;
+    }
+
+    .eceylon-logo {
+        align-self: start;
+    }
+
+    .register-page h2 {
+        text-align: start;
+        margin-left: 16px;
+        background-color: none;
+    }
+}
+
+@media(min-width:1240px) {}
+
+@media(min-width:1440px) {}

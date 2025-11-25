@@ -6,6 +6,8 @@ import { useState } from 'react';
 import axios from 'axios';
 import FormData from 'form-data';
 
+import { Button } from '../../components/button/Button'
+
 export function RegisterPage() {
 
     const [firstName, setFirstName] = useState('')
@@ -16,13 +18,13 @@ export function RegisterPage() {
 
     const formData = new FormData()
 
-    const handleFirstName = (event) =>{
+    const handleFirstName = (event) => {
         setFirstName(event.target.value)
     }
     const handleLastName = (event) => {
         setLastName(event.target.value)
     }
-    const handleEmail = event =>{
+    const handleEmail = event => {
         setEmail(event.target.value)
     }
 
@@ -30,7 +32,7 @@ export function RegisterPage() {
         setPassword(event.target.value)
     }
 
-    const handleRePassword = (event) =>{
+    const handleRePassword = (event) => {
         setRePassword(event.target.value)
         const checkPassword = password.startsWith(event.target.value)
         console.log(checkPassword)
@@ -46,34 +48,30 @@ export function RegisterPage() {
         console.log(response.data)
     }
 
-    return (
-        <>
-            <div className='register-page'>
-                <h2> eCEYLON </h2>
-                <div> Register Your Account </div>
-                <form className='register-form'>
-                    <div >
-                        <input type="text" name="first-name"  placeholder='first name' onChange={handleFirstName} />
+    return (<>
+        <div className='register-page'>
+            <div className='register-form-container'>
+                <h1><Link to={'/'} className='eceylon-logo'>  eCEYLON </Link></h1>
+                <h2 className='register-heading'> Register Your Account </h2>
+                <div className='register-form'>
+                    <div className='user-name-input'>
+                        <input type="text" name="first-name" placeholder='First Name' onChange={handleFirstName} />
                         <input type="text" name='last-name' placeholder='Last Name' onChange={handleLastName} />
                     </div>
-                    <div>
-                        <input type="email" name='email' placeholder='Email' autoComplete="username" onChange={handleEmail} />
+                    <div className='email-address-input'>
+                        <input type="email" name='email' placeholder='Email Address' autoComplete="username" onChange={handleEmail} />
                     </div>
-                    <div>
-                        <input type="password" name='password' placeholder='password' autoComplete="new-password"  onChange={handlePassword}/>
-                        <input type="password" name="password"  placeholder='retype password' autoComplete="new-password" onChange={handleRePassword} />
+                    <div className='password-input'>
+                        <input type="password" name='password' placeholder='Password' autoComplete="new-password" onChange={handlePassword} />
+                        <input type="password" name="password" placeholder='Retype Password' autoComplete="new-password" onChange={handleRePassword} />
                     </div>
-
-                    <div>
-                        <button type="submit" onClick={handleSubmit}>Register</button>
+                    <div className='register-btn-container'>
+                        <button type="submit" onClick={handleSubmit} className='register-btn'>Register</button>
+                        <Link className='login-link-register' to={'/login'}>Already have an account?</Link>
                     </div>
-                </form>
-                <div>
-                    <Link to={'/login'}> already have an account? </Link>
                 </div>
-
             </div>
+        </div>
 
-        </>
-    )
+    </>)
 }
