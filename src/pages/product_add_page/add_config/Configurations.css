@@ -1,0 +1,33 @@
+.prod-config-input-container{
+    display: flex;
+    gap: 24px;
+}
+
+.prod-config-input-info{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.prod-config-input-info div{
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+.select-prod-image{
+
+    display: flex
+    
+
+}
+
+
+.select-prod-image img{
+    width: 100px;
+    border: #000 solid 2px;
+
+}

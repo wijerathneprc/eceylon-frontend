@@ -8,44 +8,53 @@ import { Button } from '../../../components/button/Button';
 import './ShowProductConfigs.css';
 
 
-export function ShowProductConfigs({productId}){
+export function ShowProductConfigs({ productId, prodImageList }) {
     const [configList, setConfigList] = useState([])
     const [isShownConfigInput, setIsShownConfigInput] = useState(false)
 
-    const getConfigData = async () =>{
-        const response = await axios.get('http://127.0.0.1:8000/estore/config/list', {params:{param:productId}})
+    const getConfigData = async () => {
+        const response = await axios.get('http://127.0.0.1:8000/estore/config/list', { params: { param: productId } })
         setConfigList(response.data)
     }
-    const handleDeleteConfig = () =>{
+    const handleDeleteConfig = () => {
 
     }
-    const handleAddConfig = () =>{
-        isShownConfigInput ? setIsShownConfigInput(false) :setIsShownConfigInput(true)
+    const handleEditConfig = () => {}
+    const handleAddConfig = () => {
+        isShownConfigInput ? setIsShownConfigInput(false) : setIsShownConfigInput(true)
     }
 
-    useEffect(()=>{
-        productId&&getConfigData()
+    useEffect(() => {
+        productId && getConfigData()
     }, [isShownConfigInput])
-   
-    
+    console.log(prodImageList)
+    console.log(configList.map((config) => console.log(config)))
     return (<>
-    <div className="product-configurations">
-                {configList.length && (configList.map((config) => (<>
-                    <div key={config.id} className="prod-config">
-                        
-                        <div> {config.model_name}</div>
-                        <div> {config.other_name}</div>
-                        <div> {config.release_date}</div>
-                        <div> {config.price} </div>
-                        <div> <Button name={'delete'} style={'secondary-btn'} handleFunc={handleDeleteConfig} /> </div>
+        <h3 className='prod-config-heading'> Product configurations</h3>
+        <div className="prod-config-grid">
+            {configList.length ? (configList.map((config) => (<>
+                <div key={config.id} className="prod-config-container">
+                    <div className='prod-config-img'>
+                        <img src={(prodImageList.filter((img) => img.id === config.image))[0].image} lt="" />
                     </div>
-                </>)))}
-                <div>
-                    <Button name={'+'} style={'secondary-btn add-prod-img-btn'} handleFunc={handleAddConfig} />
+                    <div className='prod-config-info'>
+                        <div> Model: {config.model_name}</div>
+                        <div> Other Name: {config.other_name}</div>
+                        <div> Release Date: {config.release_date}</div>
+                        <div> Price: {config.price} </div>
+                        <div className='prod-config-btn-container'> 
+                            <button className='edit-btn' onClick={handleEditConfig}>Edit</button>
+                            <button className='delete-btn' onClick={handleDeleteConfig}>Delete</button>
+                        </div>
+                    </div>
                 </div>
+            </>))) : ('')}
+            <div className='prod-config-add-btn-container'>
+                <button className='prod-config-add-btn' onClick={handleAddConfig}>+</button>
             </div>
-            {isShownConfigInput && (<Configurations productId={productId} setIsShownConfigInput={setIsShownConfigInput} />)}
-    
-    
+        </div>
+        {isShownConfigInput && (<Configurations productId={productId} setIsShownConfigInput={setIsShownConfigInput} />)}
+
+
     </>)
 }

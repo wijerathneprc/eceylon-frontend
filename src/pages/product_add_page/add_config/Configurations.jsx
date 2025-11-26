@@ -5,16 +5,25 @@ import FormData from 'form-data';
 
 import '../ProductAddPage.css';
 import './Configurations.css'
+import { SelectImageInput } from './SelectImageInput';
 
 
-export function Configurations({ productId, setIsShownConfigInput }) {
+export function Configurations({ productId, setIsShownConfigInput, prodImageList}) {
     const [modelName, setModelName] = useState('')
     const [otherName, setOtherName] = useState('');
     const [releaseDate, setReleaseDate] = useState(null)
     const [price, setPrice] = useState('')
+    const [configImg, setConfigImg] = useState('')
 
 
     const formData = new FormData()
+
+    // const [imageList, setImageList] = useState([])
+
+    // const getProductImages = async () => {
+    //     const response = await axios.get('http://127.0.0.1:8000/estore/image/list', { params: { param: productId } })
+    //     setImageList(response.data)
+    // }
 
     const handleSend = async () => {
         formData.append('product', productId)
@@ -22,7 +31,8 @@ export function Configurations({ productId, setIsShownConfigInput }) {
         formData.append('model_name', modelName)
         formData.append('other_name', otherName)
         formData.append('release_date', releaseDate)
-   
+        formData.append('image', configImg)
+
         const res = await axios.post('http://127.0.0.1:8000/estore/config', formData)
         console.log(res.data)
         setIsShownConfigInput(false)
@@ -43,29 +53,57 @@ export function Configurations({ productId, setIsShownConfigInput }) {
     const handlePrice = (event) => {
         setPrice(event.target.value)
     }
+    const handleSelectImage = () =>{
 
-    useEffect(()=>{
+    }
 
-    },[])
+    // const selectImage = (event) => {
+    //     setConfigImg(event.target.id)
+    //     console.log(event.target.id)
+    // }
+
+    console.log(configImg)
+    useEffect(() => {
+        // getProductImages()
+
+    }, [])
 
     return (<>
-        <h3> configurations of {'Product'}</h3>
-        <div className='product-config'>
-            <div>
-                <input type="text" name="model-name" id="" placeholder='model name' onChange={handleModelName} />
+        <h3> Add a new product configuration </h3>
+        <div className='prod-config-input-container'>
+            <div className='prod-config-input-info'>
+                <div>
+                    <label >Model Name: </label>
+                    <input type="text" name="model-name" id="" placeholder='model name' onChange={handleModelName} />
+                </div>
+                <div>
+                    <label >Other Name: </label>
+                    <input type="text" name="other-name" id="" placeholder='other name' onChange={handleOtherName} />
+                </div>
+                <div>
+                    <label>Release Date: </label>
+                    <input type="date" name="release-date" id="" placeholder='release date' onChange={handleDate} />
+                </div>
+                <div>
+                    <label >Price: </label>
+                    <input type="text" name="price" id="" onChange={handlePrice} placeholder='base price in $' />
+                </div>
+                <div>
+                    <label>Select a reference image: </label>
+                    <input type="button" value="Image" onClick={handleSelectImage}/>
+                </div>
+
+                <div>
+                    <input type="button" value="Submit" onClick={handleSend} />
+                  
+                </div>
             </div>
-            <div>
-                <input type="text" name="other-name" id="" placeholder='other name' onChange={handleOtherName} />
+
+            <div className='prod-config-input-image'>
+               <SelectImageInput prodImageList={prodImageList} setSelectedImg={setConfigImg} />
+                
             </div>
-            <div>
-                <input type="date" name="release-date" id="" placeholder='release date' onChange={handleDate} />
-            </div>
-            <div>
-                <input type="text" name="price" id="" onChange={handlePrice} placeholder='base price in $' />
-            </div>
-            <div>
-                <button onClick={handleSend}> submit</button>
-            </div>
+
 
         </div>
 

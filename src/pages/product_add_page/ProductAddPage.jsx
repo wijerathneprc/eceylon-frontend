@@ -9,17 +9,16 @@ import { ShowProductImages } from './add_image/ShowProductImages';
 import { ShowProductConfigs } from './add_config/ShowProductConfigs';
 import { Footer } from '../../components/footer/Footer';
 
-
 export function ProductAddPage() {
     const [product, setProdcut] = useState({})
+    const [prodImageList, setProdImageList] = useState([])
 
     return (<>
         <Navbar />
         <div className='product-add-page'>
             {product.id ? (<NewProduct product={product} />) : (<IntroduceNewProduct setProduct={setProdcut} />)}
-            {product.id && <ShowProductImages productId={product.id} />}
-
-            {product.id && <ShowProductConfigs productId={product.id} />}
+            {product.id && <ShowProductImages productId={product.id} setProdImageList={setProdImageList} prodImageList={prodImageList}/>}
+            {product.id && <ShowProductConfigs productId={product.id} setProdImageList={setProdImageList} prodImageList={prodImageList} />}
         </div>
         <Footer />
     </>)

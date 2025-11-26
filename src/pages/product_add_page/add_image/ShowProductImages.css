@@ -1,5 +1,10 @@
-.product-images{
+.prod-img-galary-heading{
+    margin:24px 0 0 24px;
+}
+.prod-img-grid-container{
+    margin: 8px 24px 24px 24px;
     display: flex;
+    gap:8px;
 }
 
 .prod-img{
@@ -9,26 +14,33 @@
     position: relative;
     display: flex;
     border-radius: 8px;
-
 }
-.delete-btn{
-    margin:0;
-    padding:0;
-    border: none;
+.prod-img-delete-btn{
+    width: 24px;
+    height: 24px;
+    border:  #c70000 solid 1px;
+    border-radius: 4px;
+     background-color: #c7000000;
+    color: #c70000;
+    font-weight: bold;
+    
+    margin:4px;
     position: absolute;
     top:0;
     right: 0;
-   
 }
 
-.product-images img{
+.prod-img img{
     margin: auto;
     justify-self: center;
     width:80%;
-    /* height: 100px; */
 }
 
-.add-prod-img-btn{
-    width:80%;
-    /* height: 80%; */
+.prod-img-add-btn{
+    width:100px;
+    height: 100px;
+    background-color: #00000000;
+    font-size: 24px;
+    border: #00000085 solid 2px;
+    border-radius: 8px;
 }

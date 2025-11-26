@@ -1,0 +1,71 @@
+.prod-config-heading{
+    margin: 24px 24px 8px 24px;
+}
+
+.prod-config-grid{
+    display: flex;
+    gap:24px;
+}
+
+.prod-config-container{
+    margin: 8px 24px 24px 24px;
+    display: flex;
+    gap: 16px;
+    background-color: #ffffff42;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.prod-config-add-btn-container{
+ border: #00000085 solid 2px;
+ display: flex;
+ align-items: center;
+}
+
+.prod-config-add-btn{
+    width:100px;
+    height: 100px;
+    background-color: #00000000;
+    font-size: 24px;
+    border: none;
+}
+
+.prod-config-img{
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    padding:8px;
+}
+.prod-config-img img{
+    width: 100px;
+}
+
+.prod-config-info{
+    /* height: 200px; */
+}
+
+.prod-config-btn-container{
+    margin-top: 8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap:8px;
+}
+
+.prod-config-btn-container button{
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.prod-config-btn-container .delete-btn{
+    background-color: #c70000;
+    color:#fff;
+    border: none;
+}
+
+.prod-config-btn-container .edit-btn{
+    background-color: #c7000000;
+    color:#fd743d;
+    border: #fd743d solid 1px;
+}
