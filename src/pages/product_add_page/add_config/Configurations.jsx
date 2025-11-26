@@ -14,16 +14,9 @@ export function Configurations({ productId, setIsShownConfigInput, prodImageList
     const [releaseDate, setReleaseDate] = useState(null)
     const [price, setPrice] = useState('')
     const [configImg, setConfigImg] = useState('')
-
+    const [isHiddenSelectImageInput, setIsHiddenSelectInput] = useState(true)
 
     const formData = new FormData()
-
-    // const [imageList, setImageList] = useState([])
-
-    // const getProductImages = async () => {
-    //     const response = await axios.get('http://127.0.0.1:8000/estore/image/list', { params: { param: productId } })
-    //     setImageList(response.data)
-    // }
 
     const handleSend = async () => {
         formData.append('product', productId)
@@ -54,13 +47,8 @@ export function Configurations({ productId, setIsShownConfigInput, prodImageList
         setPrice(event.target.value)
     }
     const handleSelectImage = () =>{
-
+        isHiddenSelectImageInput?setIsHiddenSelectInput(false):setIsHiddenSelectInput(true)
     }
-
-    // const selectImage = (event) => {
-    //     setConfigImg(event.target.id)
-    //     console.log(event.target.id)
-    // }
 
     console.log(configImg)
     useEffect(() => {
@@ -69,7 +57,7 @@ export function Configurations({ productId, setIsShownConfigInput, prodImageList
     }, [])
 
     return (<>
-        <h3> Add a new product configuration </h3>
+        <h3 className='prod-config-input-header'> Add a new product configuration </h3>
         <div className='prod-config-input-container'>
             <div className='prod-config-input-info'>
                 <div>
@@ -90,19 +78,17 @@ export function Configurations({ productId, setIsShownConfigInput, prodImageList
                 </div>
                 <div>
                     <label>Select a reference image: </label>
-                    <input type="button" value="Image" onClick={handleSelectImage}/>
+                    <input type="button" value="Image" onClick={handleSelectImage} className='prod-config-select-img-btn'/>
                 </div>
 
                 <div>
-                    <input type="button" value="Submit" onClick={handleSend} />
-                  
+                    <input type="button" value="Submit" onClick={handleSend} className='prod-config-save-btn' />
                 </div>
             </div>
 
-            <div className='prod-config-input-image'>
+            { isHiddenSelectImageInput&&(
                <SelectImageInput prodImageList={prodImageList} setSelectedImg={setConfigImg} />
-                
-            </div>
+            ) }
 
 
         </div>

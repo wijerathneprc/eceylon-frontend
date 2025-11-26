@@ -1,4 +1,9 @@
+.prod-config-input-header{
+     margin: 24px 24px 8px 24px;
+}
+
 .prod-config-input-container{
+    margin: 8px 24px 24px 24px;
     display: flex;
     gap: 24px;
 }
@@ -6,28 +11,30 @@
 .prod-config-input-info{
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 16px;
 }
 
 .prod-config-input-info div{
     display: flex;
     flex-direction: column;
-}
-
-
-
-
-
-.select-prod-image{
-
-    display: flex
     
+}
+
+.prod-config-select-img-btn{
+    padding: 8px;
+    border-radius: 8px;
+    border:#fd743d solid 2px;
+    background-color: #fd733d00;
+    color:#fd743d;
+    font-weight: bold;
 
 }
 
-
-.select-prod-image img{
-    width: 100px;
-    border: #000 solid 2px;
-
+.prod-config-save-btn{
+    padding: 8px;
+    border-radius: 8px;
+    border: none;
+    background-color: #fd743d;
+    color:#fff;
+    font-weight: bold;
 }

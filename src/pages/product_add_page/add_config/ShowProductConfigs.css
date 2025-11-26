@@ -1,14 +1,16 @@
-.prod-config-heading{
+.prod-config-show-heading{
     margin: 24px 24px 8px 24px;
 }
 
-.prod-config-grid{
+.prod-config-show-container{
+     margin: 8px 24px 24px 24px;
     display: flex;
     gap:24px;
+    flex-wrap: wrap;
 }
 
-.prod-config-container{
-    margin: 8px 24px 24px 24px;
+.prod-config-show{
+    margin: 0;
     display: flex;
     gap: 16px;
     background-color: #ffffff42;
@@ -18,8 +20,13 @@
 
 .prod-config-add-btn-container{
  border: #00000085 solid 2px;
+ border-radius: 8px;
+ background-color: #ffffff42;
  display: flex;
+ justify-content: center;
  align-items: center;
+ min-width: 300px;
+ min-height: 100px;
 }
 
 .prod-config-add-btn{

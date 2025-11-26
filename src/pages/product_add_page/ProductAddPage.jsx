@@ -12,7 +12,7 @@ import { Footer } from '../../components/footer/Footer';
 export function ProductAddPage() {
     const [product, setProdcut] = useState({})
     const [prodImageList, setProdImageList] = useState([])
-
+    console.log(prodImageList)
     return (<>
         <Navbar />
         <div className='product-add-page'>

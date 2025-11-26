@@ -30,10 +30,10 @@ export function ShowProductConfigs({ productId, prodImageList }) {
     console.log(prodImageList)
     console.log(configList.map((config) => console.log(config)))
     return (<>
-        <h3 className='prod-config-heading'> Product configurations</h3>
-        <div className="prod-config-grid">
+        <h3 className='prod-config-show-heading'> Product Configurations</h3>
+        <div className="prod-config-show-container">
             {configList.length ? (configList.map((config) => (<>
-                <div key={config.id} className="prod-config-container">
+                <div key={config.id} className="prod-config-show">
                     <div className='prod-config-img'>
                         <img src={(prodImageList.filter((img) => img.id === config.image))[0].image} lt="" />
                     </div>
@@ -53,7 +53,7 @@ export function ShowProductConfigs({ productId, prodImageList }) {
                 <button className='prod-config-add-btn' onClick={handleAddConfig}>+</button>
             </div>
         </div>
-        {isShownConfigInput && (<Configurations productId={productId} setIsShownConfigInput={setIsShownConfigInput} />)}
+        {isShownConfigInput && (<Configurations productId={productId} setIsShownConfigInput={setIsShownConfigInput} prodImageList={prodImageList} />)}
 
 
     </>)

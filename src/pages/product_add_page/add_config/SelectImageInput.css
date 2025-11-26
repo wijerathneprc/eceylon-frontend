@@ -1,0 +1,34 @@
+
+.prod-config-input-image{
+    padding: 8px;
+    border: #00000049 solid 2px;
+    border-radius: 8px;
+}
+.select-prod-image{
+    margin-top: 16px;
+
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+
+    
+}
+.select-prod-image div{
+    background-color: #fff;
+    padding: 4px;
+    border: #00000054 solid 2px;
+    border-radius: 8px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+.select-prod-image img{
+    width: 100px;
+}
+
+.selected-img{
+    outline: #fd743d solid 2px;
+    border: #fd743d solid 2px;
+}
