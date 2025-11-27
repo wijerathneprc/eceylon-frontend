@@ -12,8 +12,8 @@ import { Sidebar } from './SideBar';
 
 
 export function StorePage(){
-    // const [productList, setProductList] = useState([])
-    // const [btn, setBtn] =useState(false)
+    const [productList, setProductList] = useState([])
+    const [btn, setBtn] =useState(false)
   
 
     const prod ={
@@ -23,19 +23,21 @@ export function StorePage(){
         description: 'iPad mini has everything there is to love about iPad in a delightfully light, compact design.'
     }
 
-    // const getProductData = async () =>{
-    //     const response = await axios.get('http://127.0.0.1:8000/estore/prod/list')
-    //     setProductList(response.data)
-    //     console.log(response.data.length)
-    // }
-    // const handleBtn = ()=>{
-    //     btn?setBtn(false):setBtn(true)
-    // }
+    const getProductData = async () =>{
+        const response = await axios.get('http://127.0.0.1:8000/estore/config/list')
+        setProductList(response.data)
+        console.log(response.data.length)
+    }
+    const handleBtn = ()=>{
+        btn?setBtn(false):setBtn(true)
+    }
 
-    // useEffect(() =>{
-    //     getProductData()
+    useEffect(() =>{
+        getProductData()
 
-    // }, [btn])
+    }, [])
+
+    console.log(productList)
     return(
         <>
         <Navbar />
@@ -45,12 +47,15 @@ export function StorePage(){
 
             </div>
             <div className='main-container-store'>
+            { productList.length?( productList.map((prod) =>(<ProdCard prod={prod} />))
+
+            ):''}
+               
+               {/* <ProdCard prod={prod} />
                <ProdCard prod={prod} />
                <ProdCard prod={prod} />
                <ProdCard prod={prod} />
-               <ProdCard prod={prod} />
-               <ProdCard prod={prod} />
-               <ProdCard prod={prod} />
+               <ProdCard prod={prod} /> */}
             </div>
             
 
