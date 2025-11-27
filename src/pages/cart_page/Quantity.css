@@ -1,0 +1,39 @@
+.quantity-btn-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    border: #0000007b solid 2px;
+    padding: 0 8px;
+    border-radius: 16px;
+}
+
+.quantity-display {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 12px;
+    padding: 4px;
+    background-color: #fd733d00;
+    border: none;
+}
+
+.quantity-up-btn {
+    background-color: #fd733d00;
+    color: #fd743d;
+    border: none;
+    font-size: 12px;
+    font-weight: bolder;
+    padding: 8px;
+    cursor: pointer;
+}
+
+.quantity-down-btn {
+    background-color: #fd733d00;
+    color: #fd743d;
+    border: none;
+    font-size: 12px;
+    padding: 8px;
+    font-weight: bolder;
+    cursor: pointer;
+}
