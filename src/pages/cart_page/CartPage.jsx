@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-
+import api from '../../api';
 
 import { Navbar } from '../../components/navbar/Navbar';
 import { Footer } from '../../components/footer/Footer';
@@ -18,7 +18,7 @@ export function CartPage() {
 
 
     const getCartData = async ()=>{
-        const response = await axios.get('http://127.0.0.1:8000/estore/cart/list')
+        const response = await api.get('/estore/cart/list')
         setCartList(response.data)
 
     }
@@ -39,7 +39,7 @@ export function CartPage() {
             </div>
             <div className='cart-sidebar'>
                 <h2> Checkout Summary </h2>
-                <CheckoutSummary cartList = {cartList} />
+                <CheckoutSummary cartList = {cartList} />cls
             </div>
         </div>
        
