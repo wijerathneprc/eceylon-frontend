@@ -8,7 +8,10 @@ export function Loading() {
 
     return (<>
         <div className='loading-container'>
-            loading.....
+            <div className='loading-text'>
+                Loading....
+            </div>
+            
         </div>
     </>)
 }

@@ -1,27 +1,17 @@
-import { Link } from 'react-router';
-
-import './LoginPage.css';
-import axios from 'axios';
-import Cookies from 'js-cookie';
-import FormData from 'form-data';
 import { useState } from 'react';
-import { Navigate, useNavigate } from 'react-router';
+
+import { Navigate, useNavigate, Link } from 'react-router';
+import FormData from 'form-data';
+
+import {Loading} from '../../components/loading/Loading'
 
 import api from '../../api';
-
 import { ACCESS_TOKEN, REFRESH_TOKEN } from '../../constants';
-// import { useEffect, useState } from 'react';
 
-
-// const logout = () => {
-//     Cookies.remove('access_token');
-//     Cookies.remove('refresh_token');
-// };
-
+import './LoginPage.css';
 
 
 export function LoginPage() {
-    // const [token, setToken] = useState('')
     const [password, setPassword] = useState('')
     const [username, setUsername] = useState('')
     const [loading, setLoading] = useState(false)
@@ -35,37 +25,24 @@ export function LoginPage() {
 
         formData.append('username', username);
         formData.append('password', password);
-    
+
         try {
-            console.log(username)
-            console.log(password)
             const response = await api.post('/api/token/', formData)
 
             if (response.status === 200) {
                 localStorage.setItem(ACCESS_TOKEN, response.data.access)
                 localStorage.setItem(REFRESH_TOKEN, response.data.refresh)
-                console.log( response.data.access)
                 navigate('/')
 
-            } else {
-                // navigate('/login')
-                console.log('not login')
-            }
+            } else { navigate('/login') }
+
         } catch (error) {
-            console.log('Faile')
-            console.log(error)
             alert(error)
+
         } finally {
             setLoading(false)
         }
-
-
-
-
-
-
     }
-
 
     const handleUsername = (event) => {
         setUsername(event.target.value)
@@ -76,28 +53,34 @@ export function LoginPage() {
     }
 
 
-    return (
-        <>
+    return (<>
+        <div className='login-page'>
             <div className="login-container">
-                <h1><Link className="logo-link-h1" to={"/"}>eCEYLON</Link></h1>
+                <h1 className='login-page-heading'><Link className="login-page-logo-link" to={"/"}>eCEYLON</Link></h1>
 
-                <div className="login-form">
+                <div className="login-page-form">
                     <h2> Login to your account </h2>
-                    <input type="text" id="username" name="username" required placeholder="Username" onChange={handleUsername} />
-                    <input type="password" id="password" name="password" required placeholder="Password" onChange={handlePassword} />
+                    <div>
+                         <input type="text" id="username" name="username" required placeholder="Username" onChange={handleUsername} />
+
+                    </div>
+                    <div>
+                        <input type="password" id="password" name="password" required placeholder="Password" onChange={handlePassword} />
+                    </div>
+                    
                     <button className="login-btn" type="submit" onClick={login}>Login</button>
                     <div className="login-remember-me">
                         <input type="checkbox" id="remember-me" name="remember-me" />
                         <label htmlFor="remember-me"> Remember me </label>
                     </div>
-                </div>
 
-                <div className="login-register-pasword">
-                    <Link className="register-btn" to={"/register"}> Register </Link>
-                    <Link className="forget-password-btn" to={"/forget-password"}> forget password? </Link>
+                    <div className="login-page-register-container">
+                        <Link className="loging-pg-register-btn" to={"/register"}>Register</Link>
+                        <Link className="forget-password-btn" to={"/forget-password"}>forget password?</Link>
+                    </div>
                 </div>
             </div>
-
-        </>
-    )
+            {loading&&<Loading />}
+        </div>
+    </>)
 }
