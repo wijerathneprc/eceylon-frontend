@@ -1,0 +1,177 @@
+.profile-page {
+    width: 100%;
+    margin: 0;
+    padding: 0 16px;
+}
+
+.profile-page h1 {
+    text-align: center;
+}
+
+.profile-pg-main-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    background-color: #ffffff63;
+    border-radius: 16px;
+    padding: 8px;
+}
+
+.profile-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.profile-info-container div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile-info-container h2 {
+    font-size: 24px;
+    margin: 0;
+}
+
+.profile-edit-btn {
+    padding: 4px 32px;
+    border: none;
+    border-radius: 8px;
+    background-color: #fd743d;
+    color: #fff;
+}
+
+.profile-address-container {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+    overflow-x: auto;
+    padding: 8px 0;
+}
+
+.profile-add-new-address-btn-container {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.profile-add-new-address-btn-container button {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fd743d;
+    background-color: #fd733d00;
+    border: none;
+    cursor: pointer;
+}
+
+.profile-pg-order-heading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.profile-pg-order-heading a {
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fd743d;
+}
+
+
+@media(min-width:600px) {
+    .profile-page {
+        width: 100%;
+        margin: 0;
+        padding: 0 32px;
+    }
+
+    .profile-page h1 {
+        text-align: start;
+    }
+
+    .profile-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 24px;
+        padding: 16px;
+        position: relative;
+    }
+
+    .profile-info-container div {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .profile-info-container h2 {
+        font-size: 32px;
+        margin: 0;
+    }
+
+    .profile-edit-btn {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        margin: 8px;
+        padding: 4px 16px;
+    }
+
+    .profile-add-new-address-btn-container {
+        justify-content: flex-start;
+    }
+
+    .profile-pg-order-heading {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 8px;
+    }
+}
+
+@media(min-width:904px) {
+    .profile-page {
+        width: 840px;
+        margin: auto;
+        padding: 0;
+
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+    }
+
+    .profile-pg-main-container {
+        grid-column: span 8;
+    }
+
+    .profile-pg-sidebar {
+        grid-column: span 4;
+    }
+
+}
+
+@media(min-width:1240px) {
+    .profile-page {
+        width: 100%;
+        margin: 0;
+        padding: 0 200px;
+    }
+}
+
+@media(min-width:1440px) {
+    .profile-page {
+        width: 1040px;
+        margin: auto;
+        padding: 0;
+    }
+}

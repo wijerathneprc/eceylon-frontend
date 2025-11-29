@@ -43,6 +43,7 @@ export function ProtectedRoute({ children }) {
             await refreshToken()
         } else {
             setIsAthorized(true)
+            // console.log(token)
         }
     }
 

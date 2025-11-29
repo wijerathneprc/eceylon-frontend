@@ -1,0 +1,40 @@
+.profile-address{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex-wrap: wrap;
+
+    max-width: 200px;
+
+    background-color: #ffffff58;
+    padding: 16px;
+    border-radius: 8px;
+}
+
+.show-address-btn-container{
+    display: flex;
+    justify-content: space-between;
+
+    border: #000 solid 2px;
+    padding: 4px 8px;
+    border-radius: 16px;
+    
+}
+.show-address-btn-container div{
+    font-size: 12px;
+    display: flex;
+    /* border: #000 solid 2px; */
+    gap: 4px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.show-address-btn-container button{
+    background-color: #00000000;
+    border:none;
+    font-size: 12px;
+    padding: 4px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+

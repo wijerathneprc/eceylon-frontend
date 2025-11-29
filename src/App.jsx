@@ -37,7 +37,7 @@ function App() {
         <Route path='/forget-password' element={<ForgetPasswordPage />} />
         <Route path='/estore' element={<StorePage />} />
         <Route path='/cart' element={<ProtectedRoute ><CartPage /></ProtectedRoute>} />
-        <Route path='/profile' element={<ProtectedRoute ><ProfilePage /></ProtectedRoute>} />
+        <Route path='/profile' element={ <ProtectedRoute ><ProfilePage /></ProtectedRoute>}/>
         <Route path='/product/add' element={<ProtectedRoute > <ProductAddPage /> </ProtectedRoute> } />
 
       </Routes>
