@@ -10,15 +10,16 @@
 .register-form-container {
     display: flex;
     flex-direction: column;
+    gap: 24px;
     justify-content: start;
     width: 80%;
 }
 
 .register-page h1 {
-    margin: 8px 0;
+    margin: 0;
     padding: 0;
+    text-align: center;
 }
-
 .eceylon-logo {
     text-decoration: none;
     color: #fd743d;
@@ -26,98 +27,119 @@
     border-bottom: #fd743d solid 2px;
 }
 
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
 .register-page h2 {
-    margin: 8px 0;
+    margin: 0;
     padding: 0;
     background-color: none;
     text-align: center;
 }
 
 .register-form input {
-    height: 40px;
     width: 100%;
-    margin: 16px 0;
-    padding: 8px;
-    border-radius: 8px;
     border: #00000097 solid 2px;
+    border-radius: 16px;
+    padding: 8px 16px;
+
+    font-size: 16px;
+    font-weight: normal;
 }
 
-.register-btn {
-    background-color: #fd743d;
-    color: #fff;
+.user-name-input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.password-input {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.retype-password-info {
+    margin: 4px 0 0 0;
+    list-style-position: inside;
+    padding: 0 16px;
+    font-size: 12px;
     font-weight: bold;
-    margin-right: 16px;
-    height: 32px;
-    border-radius: 8px;
-    padding: 0 8px;
+    color: red;
+}
+.retype-password-info li {
+    padding: 0;
+    margin: 0;
 }
 
 .register-btn-container {
-    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
 }
+
+.register-btn {
+    border: none;
+    background-color: #fd743d;
+    color: #fff;
+    font-size: 16px;
+    font-weight: normal;
+    padding: 8px 16px;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+.register-pg-login-link {
+    align-self: center;
+}
+
 
 @media(min-width:600px) {
     .register-form-container {
-        width: 70%;
-    }
-
-    .register-page h1 {
-        margin-bottom: 16px 0;
-    }
-
-    .register-page h2 {
-        margin: 16px 0;
-        background-color: none;
-    }
-
-    .register-form input {
-        height: 48px;
-        width: 100%;
-        margin: 24px 0;
-        padding: 8px;
-        border-radius: 8px;
-        border: #00000097 solid 2px;
-    }
-
-    .register-btn {
-        height: 40px;
+        width: 65%;
     }
 }
 
 @media(min-width:904px) {
     .register-form-container {
-        background-color: rgba(86, 78, 78, 0.079);
+         background-color: #e8e8e832;
+         border: #fff solid 2px;
         padding: 24px;
-        max-width: 550px;
+        max-width: 600px;
         border-radius: 16px;
+        gap: 32px;
     }
 
-    .register-form input {
-        width: 200px;
-        margin: 16px;
-        padding: 8px;
-        border-radius: 8px;
-        border: #00000097 solid 2px;
+    .user-name-input {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .password-input {
+        display: flex;
+        flex-direction: row;
+        gap: 16px;
+    }
+
+    .password-input div {
+        flex-grow: 1;
+    }
+
+    .register-form {
+        gap: 24px;
+    }
+
+    .register-btn-container {
+        display: flex;
+        flex-direction: row;
+        gap: 24px;
     }
 
     .register-btn {
-        margin-left: 16px;
-    }
-
-    .register-page h1 {
-        margin-bottom: 4px;
-        margin-left: 16px;
-        align-self: start;
-    }
-
-    .eceylon-logo {
-        align-self: start;
-    }
-
-    .register-page h2 {
-        text-align: start;
-        margin-left: 16px;
-        background-color: none;
+        padding: 8px 32px;
     }
 }
 
