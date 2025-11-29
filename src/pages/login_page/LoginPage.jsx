@@ -60,22 +60,22 @@ export function LoginPage() {
 
                 <div className="login-page-form">
                     <h2> Login to your account </h2>
-                    <div>
-                         <input type="text" id="username" name="username" required placeholder="Username" onChange={handleUsername} />
+                    <div className='username-container'>
+                         <input type="text" id="username" name="username" required placeholder="username" onChange={handleUsername} />
 
                     </div>
-                    <div>
-                        <input type="password" id="password" name="password" required placeholder="Password" onChange={handlePassword} />
+                    <div className='password-container'>
+                        <input type="password" id="password" name="password" required placeholder="password" onChange={handlePassword} />
                     </div>
                     
                     <button className="login-btn" type="submit" onClick={login}>Login</button>
                     <div className="login-remember-me">
                         <input type="checkbox" id="remember-me" name="remember-me" />
-                        <label htmlFor="remember-me"> Remember me </label>
+                        <label htmlFor="remember-me">remember me </label>
                     </div>
 
                     <div className="login-page-register-container">
-                        <Link className="loging-pg-register-btn" to={"/register"}>Register</Link>
+                        <Link className="loging-pg-register-btn" to={"/register"}>register</Link>
                         <Link className="forget-password-btn" to={"/forget-password"}>forget password?</Link>
                     </div>
                 </div>
