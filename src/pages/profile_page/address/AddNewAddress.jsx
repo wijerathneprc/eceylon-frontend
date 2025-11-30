@@ -35,9 +35,14 @@ export function AddNewAddress({ setAddNewAddress }) {
         formData.append('street_line_02', line2)
         formData.append('postal_code', postalCode)
         // formData.append('user', 1)
+        console.log('response')
 
-        const response =await api.post('/estore/address',formData)
-        console.log(response.data)
+        const response = await api({method:'OPTIONS', url:'/estore/address'})
+
+        // const response =await api.post('/estore/address',formData)
+        console.log('response')
+        console.log(response.data.actions.POST.province.choices)
+        console.log(response.data.actions.POST.district.choices)
 
         setAddNewAddress(false)
     }

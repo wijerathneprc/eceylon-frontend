@@ -8,11 +8,27 @@ import './ProfilePage.css';
 import { ProfileImage } from './profile_image/ProfileImage';
 import { Address } from './address/Address';
 import { AddNewAddress } from './address/AddNewAddress';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import api from '../../api'
 
 export function ProfilePage() {
     const [addNewAddress, setAddNewAddress] = useState(false)
-    console.log(addNewAddress)
+    const [addressList, setAddressList] = useState([])
+    // console.log(addNewAddress)
+
+    const getAddressData = async () =>{
+        const response = await api.get('/estore/address/list')
+        setAddressList(response.data)
+    }
+
+    console.log(addressList)
+    useEffect(() =>{
+        getAddressData()
+    },[])
+
+
+
 
     return (<>
         <Navbar />
@@ -41,9 +57,11 @@ export function ProfilePage() {
                         <button onClick={() => addNewAddress ? setAddNewAddress(false) : setAddNewAddress(true)}>+ Address </button>
                     </div>
                     <div className='profile-address-container'>
-                        <Address />
-                        <Address />
-                       
+                        {
+                            addressList.length?addressList.map((address) =>
+                                <Address key={address.id} address={address}/>
+                            ):null
+                        }
                     </div>
                     
                     {addNewAddress ? <AddNewAddress setAddNewAddress={setAddNewAddress} /> : null}
