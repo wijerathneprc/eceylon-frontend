@@ -13,6 +13,8 @@ import { useEffect, useState } from 'react';
 import api from '../../api'
 
 export function ProfilePage() {
+    const [districtChoices, setDistrictChoices] = useState(null)
+    const [provinceChoices, setProvinceChoices] = useState(null)
     const [addNewAddress, setAddNewAddress] = useState(false)
     const [addressList, setAddressList] = useState([])
     // console.log(addNewAddress)
@@ -22,9 +24,17 @@ export function ProfilePage() {
         setAddressList(response.data)
     }
 
+    const getChoiceData = async () =>{
+        const response = await api({method:'OPTIONS', url:'/estore/address'})
+         setProvinceChoices(response.data.actions.POST.province.choices)
+        setDistrictChoices(response.data.actions.POST.district.choices)
+    }
+
+
     console.log(addressList)
     useEffect(() =>{
-        getAddressData()
+        getAddressData();
+        getChoiceData();
     },[])
 
 
@@ -59,12 +69,12 @@ export function ProfilePage() {
                     <div className='profile-address-container'>
                         {
                             addressList.length?addressList.map((address) =>
-                                <Address key={address.id} address={address}/>
+                                <Address key={address.id} address={address} setAddressList={setAddressList} provinceChoices={provinceChoices} districtChoices={districtChoices}/>
                             ):null
                         }
                     </div>
                     
-                    {addNewAddress ? <AddNewAddress setAddNewAddress={setAddNewAddress} /> : null}
+                        {addNewAddress ? <AddNewAddress setAddNewAddress={setAddNewAddress} provinceChoices={provinceChoices} districtChoices={districtChoices} edit={null}/> : null}
                 </div>
 
                 <div className='profile-pg-order'>

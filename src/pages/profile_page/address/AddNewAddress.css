@@ -33,10 +33,19 @@
     display: flex;
     gap: 16px;
     justify-content: space-between;
-    align-items: center;
+     align-items: center;
 }
 
 .address-form input{
+    border: #626161 solid 2px;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.address-form select{
+    /* flex-grow: 1; */
+    /* flex-shrink: 0; */
     border: #626161 solid 2px;
     font-size: 16px;
     padding: 8px 16px;
