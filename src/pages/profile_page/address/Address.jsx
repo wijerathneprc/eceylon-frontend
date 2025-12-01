@@ -13,7 +13,6 @@ export function Address({address, setAddressList, provinceChoices, districtChoic
 
         setAddressList((prevList) => prevList.filter( (list)=> list.id!=address.id) )
     }
-    console.log(address.id)
 
     const handleEdit =() =>{addNewAddress ? setAddNewAddress(false) : setAddNewAddress(true)}
 
