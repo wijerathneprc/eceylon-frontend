@@ -25,6 +25,7 @@ export function Configurations({ productId, setIsShownConfigInput, prodImageList
         formData.append('other_name', otherName)
         formData.append('release_date', releaseDate)
         formData.append('image', configImg)
+        formData.append('available_quantity', 2)
 
         const res = await axios.post('http://127.0.0.1:8000/estore/config', formData)
         console.log(res.data)

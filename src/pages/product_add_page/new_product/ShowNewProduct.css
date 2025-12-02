@@ -11,14 +11,15 @@
 }
 
 .product-name{
+
     grid-column: span 2;
 
     /* background-color: #fd733d69; */
     color:#fff;
     /* padding: 24px; */
-    margin-bottom: 24px;
+    /* margin-bottom: 24px; */
 
-    font-size: larger;
+    /* font-size: larger; */
     font-weight: bolder;
 }
 .product-brand{

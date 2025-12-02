@@ -1,31 +1,54 @@
 .introduce-new-product {
     display: flex;
     flex-direction: column;
+    gap: 24px;
 }
 
 .introduce-new-product h1 {
     padding: 0;
-    margin: 24px 0;
+    margin: 0;
 }
 
 .new-prod-basic-info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 16px;
+    /* justify-content: space-between; */
 }
 
 .new-prod-basic-info div {
     display: flex;
     flex-direction: column;
+    gap: 8px;
     justify-content: space-between;
+    /* align-items: center; */
 }
 
-.new-prod-description {
-    display: flex;
-    flex-direction: column;
+.new-prod-basic-info input {  
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 8px 16px;
+    border: 2px solid #ccc;
+    border-radius: 8px;
 
-    margin-top: 24px;
 }
+
+.new-prod-basic-info p { 
+    font-size: 12px;
+    line-height: 1.2;
+    padding: 4px 16px;
+    color: #666;
+
+}
+
+.new-prod-basic-info button{
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 8px 32px;
+    border: 2px solid #ccc;
+    border-radius: 16px;} 
+
+
 
 .new-prod-description textarea {
     width: 100%;
@@ -39,28 +62,35 @@
     resize: none;
 }
 
-.new-prod-intro-btn-container {
-    display: flex;
-}
-
-.new-prod-intro-btn {
-    margin: 24px 0;
-    padding: 8px 32px;
-    border-radius: 8px;
-    height: 32px;
-}
 
 
 @media(min-width:600px) {
-    .new-prod-basic-info {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
 
 }
 
-@media(min-width:904px) {}
+@media(min-width:904px) {
+    .new-prod-basic-info{
+        display: grid;
+        grid-template-columns:  repeat(2, 1fr);
+    }
+
+    .intro-new-prod-name{
+        grid-column: span 2;
+    }   
+
+    .search-select-option-container{
+        grid-column: span 1;
+        align-self: start;
+    }
+    .new-prod-description{
+        grid-column: span 2;    
+    }
+    .new-prod-basic-info button{
+        grid-column: span 2;
+        justify-self: start;
+    }
+
+}
 
 @media(min-width:1240px) {}
 
